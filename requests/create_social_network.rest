@@ -1,0 +1,8 @@
+POST http://localhost:5000/api/v1/networks/create-socialnetwork
+content-type: application/json
+
+{
+    "name" : "Twitter",
+    "url" : "https://twitter.com/carloskrt",
+    "userId" : "62e854314591030ed47000ae"
+}
