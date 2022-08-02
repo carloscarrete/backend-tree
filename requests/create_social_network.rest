@@ -2,7 +2,7 @@ POST http://localhost:5000/api/v1/networks/create-socialnetwork
 content-type: application/json
 
 {
-    "name" : "Twitter",
-    "url" : "https://twitter.com/carloskrt",
-    "userId" : "62e854314591030ed47000ae"
+    "name" : "Facebook",
+    "url" : "https://facebook.com/sdfdsfsdf",
+    "userId" : "62e89a47275ae3d5df03aae1"
 }

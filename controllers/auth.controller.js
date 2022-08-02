@@ -1,4 +1,3 @@
-const {users} = require('../data/users');
 const User = require('../models/User');
 const { generateToken } = require('../utils/generateToken');
 
@@ -78,7 +77,10 @@ const getUserByName = async (req, res) =>{
   if(!user) return res.status(404).json({message: 'El usuario no existe'});
   return res.status(200).json({
       ok: true,
-      user
+      userId: user._id,
+      username: user.username,
+      email: user.email,
+      networks: user.networks
   })
 }
 
