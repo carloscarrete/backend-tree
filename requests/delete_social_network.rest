@@ -1,0 +1,4 @@
+POST http://localhost:5000/api/v1/networks/delete-socialnetwork/62e8a6bea13f064bde031d41
+
+content-type: application/json
+

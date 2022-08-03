@@ -7,9 +7,8 @@ const validateToken = (req, res, next)=>{
         token = token.split(' ')[1];
         
         const payload = jwt.verify(token, process.env.JWT_SECRET);
-        
-        req.uid = payload.user._id;
-        req.username = payload.user.username;
+        req.uid = payload.uid;
+        req.username = payload.username;
         next();
 
     }catch(error){

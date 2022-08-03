@@ -10,10 +10,22 @@ const getSocialNetworks = async (req, res) => {
     });
 }
 
+const deleteSocialNetwork = async (req, res) => {
+    const { id: socialNetworkId } = req.params;
+    try{
+        const socalNetwork = await SocialNetwork.findById(socialNetworkId);
+        if(!socalNetwork) throw new Error('La red social no existe');
+        await SocialNetwork.findByIdAndDelete( socialNetworkId );
+        res.status(200).json({
+            message: 'Red social eliminada correctamente',
+        })
+    }catch(error){
+        console.log(error.message);
+    }
+}
+
 const createSocialNetwork = async (req, res) => {
-    const { name, url, userId } = req.body;
-    //let socialNetwork = await SocialNetwork.findOne({ name });
-    let user = await User.findOne({ _id: userId }).populate('networks');
+  let user = await User.findOne({ _id: userId }).populate('networks');
     if(user.networks.find(network => network.name === name)){
         return res.status(400).json({
             message: `La red social ${name} ya ha sido registrada`
@@ -36,12 +48,13 @@ const createSocialNetwork = async (req, res) => {
             });
         } catch (error) {
             console.log(error);
-        } 
+        }  
 
 }
 
 
 module.exports = {
+    createSocialNetwork,
+    deleteSocialNetwork,
     getSocialNetworks,
-    createSocialNetwork
 }

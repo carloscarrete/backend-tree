@@ -48,7 +48,7 @@ const login = async (req, res) =>{
         }
         const comparePassword = await user.comparePassword(password);
         if(!comparePassword) return res.status(406).json({message: 'Las credenciales no coinciden'});
-        const token = generateToken(user);
+        const token = generateToken(user.username, user._id);
 
         return res.status(200).json({
             ok: true,
@@ -86,9 +86,10 @@ const getUserByName = async (req, res) =>{
 
 
 const validateMyToken = async (req, res)=>{
+
     const {username, uid }= req;
-    console.log(username, uid);
-    const token = generateToken({username, uid});
+    //console.log(username, uid);
+    const token = generateToken(username, uid);
     return res.status(200).json({
         ok: true,
         username,
