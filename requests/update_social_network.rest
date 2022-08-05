@@ -1,0 +1,10 @@
+PUT  http://localhost:5000/api/v1/networks/62ecadecca9242f4ca719cf8
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcm9saW5hIiwidWlkIjoiNjJlY2FhMTMxMDhiMWEzY2MwZTdiYTE5IiwiaWF0IjoxNjU5Njc4MjU5LCJleHAiOjE2NjIyNzAyNTl9.TOsmTKI0w0kP38L4VUF4AJa9WVFnUZNlAGM-VFoiJyQ
+
+{
+    "name" : "Youtube Naranja",
+    "url" : "https://twitter.com/caritopsy"
+}
+
+

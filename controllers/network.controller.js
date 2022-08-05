@@ -47,8 +47,26 @@ const createSocialNetwork = async (req, res) => {
         });
     } catch (error) {
         console.log(error.message);
-    }
+    } 
+}
 
+const updateSocialNetwork = async (req, res) => {
+    const { id: socialNetworkId } = req.params;
+    const { name, url } = req.body;
+    try {
+        const socialNetwork = await SocialNetwork.findById(socialNetworkId);
+        if (!socialNetwork) throw new Error('La red social no existe');
+        if (socialNetwork.user.toString() !== req.uid)  throw new Error('No tienes permisos para actualizar esta red social');
+        socialNetwork.name = name;
+        socialNetwork.url = url;
+        await socialNetwork.save();
+        res.status(200).json({
+            message: 'Red social actualizada correctamente',
+            ok: true
+        });
+    } catch (error) {
+        console.log(error.message);
+    } 
 }
 
 
@@ -56,4 +74,5 @@ module.exports = {
     createSocialNetwork,
     deleteSocialNetwork,
     getSocialNetworks,
+    updateSocialNetwork
 }
