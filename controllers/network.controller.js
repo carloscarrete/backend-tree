@@ -29,14 +29,9 @@ const deleteSocialNetwork = async (req, res) => {
 const createSocialNetwork = async (req, res) => {
     const {uid:userId }= req;
     const {name, url} = req.body;
-    console.log(req.body);
-    let user = await User.findOne({ _id: userId }).populate('networks');
-    if (user.networks.find(network => network.name === name)) {
-        return res.status(400).json({
-            message: `La red social ${name} ya ha sido registrada`
-        });
-    }
     try {
+        let user = await User.findOne({ _id: userId }).populate('networks');
+        if (user.networks.find(network => network.name === name)) throw new Error(`La red social ${name} ya ha sido registrada`);
         user = await User.findOne({ _id: userId });
         let socialNetwork = new SocialNetwork({
             name,
@@ -51,7 +46,7 @@ const createSocialNetwork = async (req, res) => {
             ok: true
         });
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
     }
 
 }
