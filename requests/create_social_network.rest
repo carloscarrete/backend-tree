@@ -1,8 +1,8 @@
-POST http://localhost:5000/api/v1/networks/create-socialnetwork
+POST http://localhost:5000/api/v1/networks/
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcm9saW5hIiwidWlkIjoiNjJlY2FhMTMxMDhiMWEzY2MwZTdiYTE5IiwiaWF0IjoxNjU5Njc3ODIwLCJleHAiOjE2NjIyNjk4MjB9.PQMaAS0Ws7-Wm1msjpiynuYuRtrB0NBLhUgbNvDGHH8
 
 {
-    "name" : "Facebook",
-    "url" : "https://facebook.com/sdfdsfsdf",
-    "userId" : "62e854314591030ed47000ae"
+    "name" : "Twitter",
+    "url" : "https://twitter.com/caritopsy",
 }
