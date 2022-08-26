@@ -1,8 +1,8 @@
-POST http://localhost:5000/api/v1/networks/
+POST  http://localhost:5000/api/v1/networks/
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcm9saW5hIiwidWlkIjoiNjJlY2FhMTMxMDhiMWEzY2MwZTdiYTE5IiwiaWF0IjoxNjU5Njc3ODIwLCJleHAiOjE2NjIyNjk4MjB9.PQMaAS0Ws7-Wm1msjpiynuYuRtrB0NBLhUgbNvDGHH8
 
 {
     "name" : "Twitter",
-    "url" : "https://twitter.com/caritopsy",
+    "url" : "https://twitter.com/caritopsy"
 }

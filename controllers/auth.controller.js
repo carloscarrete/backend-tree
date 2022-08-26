@@ -38,22 +38,25 @@ const register = async (req, res) =>{
 const login = async (req, res) =>{
 
     const {username, password} = req.body;
+
     
     try{
         let user = await User.findOne({username});
         if(!user){
             return res.status(400).json({
-                message: 'El usuario no existe'
+                message: 'El usuario no existe',
+                ok: false
             });
         }
         const comparePassword = await user.comparePassword(password);
-        if(!comparePassword) return res.status(406).json({message: 'Las credenciales no coinciden'});
+        if(!comparePassword) return res.status(406).json({message: 'Las credenciales no coinciden', ok: false});
         const token = generateToken(user.username, user._id);
 
         return res.status(200).json({
             ok: true,
             id : user._id,
             username: user.username,
+            email: user.email,
             token
         })
 

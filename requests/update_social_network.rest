@@ -1,10 +1,10 @@
-PUT  http://localhost:5000/api/v1/networks/62ecadecca9242f4ca719cf8
+PUT  http://localhost:5000/api/v1/networks/62ecaefb619cbf5964a6fcfc
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcm9saW5hIiwidWlkIjoiNjJlY2FhMTMxMDhiMWEzY2MwZTdiYTE5IiwiaWF0IjoxNjU5Njc4MjU5LCJleHAiOjE2NjIyNzAyNTl9.TOsmTKI0w0kP38L4VUF4AJa9WVFnUZNlAGM-VFoiJyQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcmxvc2NhcnJldGUiLCJ1aWQiOiI2MmVhZjdmMWE3NTFkY2I4MDE4ZGI4ZWIiLCJpYXQiOjE2NTk2ODE5NzgsImV4cCI6MTY2MjI3Mzk3OH0.Eh-K0GKJcYxGNmWmaLCVCNTC_KePuvDCBVHIH8ZgIpY
 
 {
-    "name" : "Youtube Naranja",
-    "url" : "https://twitter.com/caritopsy"
+    "name" : "Twitter Network",
+    "url" : "https://twitter.com/carito18"
 }
 
 
