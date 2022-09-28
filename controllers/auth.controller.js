@@ -9,6 +9,7 @@ const register = async (req, res) =>{
         let user = await User.findOne({username});
         if(user){
             return res.status(400).json({
+                ok: false,
                 message: 'El usuario ya existe'
             });
         }
@@ -91,11 +92,14 @@ const getUserByName = async (req, res) =>{
 const validateMyToken = async (req, res)=>{
 
     const {username, uid }= req;
+    let user = await User.findById(uid);
+    
     //console.log(username, uid);
     const token = generateToken(username, uid);
     return res.status(200).json({
         ok: true,
         username,
+        email: user.email,
         uid,
         token,
         message: 'Token renow'
