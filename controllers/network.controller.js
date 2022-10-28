@@ -10,6 +10,17 @@ const getSocialNetworks = async (req, res) => {
     });
 }
 
+const getSocialNetwork = async (req, res) => {
+    const {username} = req.params;
+    const socialNetworkUser = await User.findOne({username}).populate('networks');
+    if(!socialNetworkUser) return res.status(404).json({ok: false, message: `El usuario no existe`});
+    return res.status(200).json({
+        ok: true,
+        username,
+        networks: socialNetworkUser.networks
+    })
+}
+
 const deleteSocialNetwork = async (req, res) => {
     const { id: socialNetworkId } = req.params;
     
@@ -43,6 +54,8 @@ const createSocialNetwork = async (req, res) => {
         await user.save();
         return res.status(200).json({
             message: 'Red social agreada correctamente',
+            name, 
+            url,
             ok: true
         });
     } catch (error) {
@@ -74,5 +87,6 @@ module.exports = {
     createSocialNetwork,
     deleteSocialNetwork,
     getSocialNetworks,
-    updateSocialNetwork
+    updateSocialNetwork,
+    getSocialNetwork
 }
