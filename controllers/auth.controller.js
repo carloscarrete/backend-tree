@@ -67,13 +67,15 @@ const login = async (req, res) =>{
 
 };
 
-const getUsers = async (req, res) =>{
+
+//GET ALL USERS || OBTENER TODOS LOS USUARIOS
+/* const getUsers = async (req, res) =>{
     const users = await User.find({}).populate('networks');
     return res.status(200).json({
         ok: true,
         users
     })
-}
+} */
 
 const getUserByName = async (req, res) =>{
   const username = req.params.username;
