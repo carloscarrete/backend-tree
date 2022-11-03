@@ -2,8 +2,8 @@ POST http://localhost:5000/api/v1/auth/register
 content-type: application/json
 
 {
-    "username": "carloscarrete",
-    "email" : "carloscarrete.sc@gmail.com",
-    "password" : "carrete123",
-    "confirmPassword" : "carrete123"
+    "username": "maria",
+    "email" : "maria@gmail.com",
+    "password" : "maria123",
+    "confirmPassword" : "maria123"
 }

@@ -16,6 +16,18 @@ const User = new Schema({
         required: true,
         unique: true
     },
+    profilePicture: {
+        type: String,
+        required: true
+    },
+    profileBackgroundPicture: {
+        required: true,
+        type: String,
+    },
+    biography: {
+        type: String,
+        maxLength: 255,
+    },
     networks:[
         {type: Schema.Types.ObjectId,
         ref: 'SocialNetwork'
