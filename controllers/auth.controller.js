@@ -88,6 +88,8 @@ const getUsers = async (req, res) => {
 }
 
 const getUserByName = async (req, res) => {
+    const ipAddress = req.socket.remoteAddress;
+    console.log(ipAddress);
     const username = req.params.username;
     const user = await User.findOne({ username }).populate('networks');
     if (!user) return res.status(404).json({ message: 'El usuario no existe' });
