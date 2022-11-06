@@ -103,84 +103,40 @@ const getUserByName = async (req, res) => {
     })
 }
 
-const updateProfilePicture = async (req, res) => {
+const updateInfo = async (req, res) => {
     const uid = req.uid;
 
-    let user = await User.findById(uid);
+    try {
+        let user = await User.findById(uid);
 
-    if (!user) return res.status(404).json({ ok: false, message: 'El usuario no existe' });
+        if (!user) return res.status(404).json({ ok: false, message: 'El usuario no existe' });
 
-    if (user._id.toString() !== uid) {
-        return res.status(404).json({
-            ok: false,
-            message: 'No tienes privilegios para realizar esta acción'
-        });
+        if (user._id.toString() !== uid) {
+            return res.status(404).json({
+                ok: false,
+                message: 'No tienes privilegios para realizar esta acción'
+            });
+        }
+
+
+        const update = {
+            ...req.body,
+        }
+
+        const updatePP = await User.findByIdAndUpdate(uid, update, { new: true });
+
+        return res.json({
+            ok: true,
+            profilePicture: updatePP
+        })
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            ok: true,
+            msg: 'Ha ocurrido un error, por favor, comuniquese con el administrador'
+        })
     }
 
-
-    const update = {
-        ...req.body,
-    }
-
-    const updatePP = await User.findByIdAndUpdate(uid, update, { new: true });
-
-    return res.json({
-        ok: true,
-        profilePicture: updatePP
-    })
-
-}
-
-const updateProfileBackgroundPicture = async (req, res) => {
-    const uid = req.uid;
-
-    let user = await User.findById(uid);
-
-    if (!user) return res.status(404).json({ ok: false, message: 'El usuario no existe' });
-
-    if (user._id.toString() !== uid) {
-        return res.status(404).json({
-            ok: false,
-            message: 'No tienes privilegios para realizar esta acción'
-        });
-    }
-
-    const update = {
-        ...req.body
-    }
-
-    const updateBc = await User.findByIdAndUpdate(uid, update, { new: true });
-
-    return res.json({
-        ok: true,
-        profilePicture: updateBc
-    })
-}
-
-const updateProfileBiography = async (req, res) => {
-    const uid = req.uid;
-
-    let user = await User.findById(uid);
-
-    if (!user) return res.status(404).json({ ok: false, message: 'El usuario no existe' });
-
-    if (user._id.toString() !== uid) {
-        return res.status(404).json({
-            ok: false,
-            message: 'No tienes privilegios para realizar esta acción'
-        });
-    }
-
-    const update = {
-        ...req.body
-    }
-
-    const updateBc = await User.findByIdAndUpdate(uid, update, { new: true });
-
-    return res.json({
-        ok: true,
-        profilePicture: updateBc
-    })
 }
 
 
@@ -197,6 +153,9 @@ const validateMyToken = async (req, res) => {
         email: user.email,
         uid,
         token,
+        profilePicture: user.profilePicture,
+        profileBackgroundPicture: user.profileBackgroundPicture,
+        biography: user.biography,
         message: 'Token renow'
     })
 }
@@ -206,8 +165,6 @@ module.exports = {
     getUsers,
     login,
     register,
-    updateProfileBackgroundPicture,
-    updateProfileBiography,
-    updateProfilePicture,
+    updateInfo,
     validateMyToken
 }

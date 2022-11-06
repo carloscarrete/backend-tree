@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 const { validator } = require('../middleware/validator');
-const { register, login, validateMyToken, getUsers, getUserByName, updateProfilePicture, updateProfileBackgroundPicture, updateProfileBiography } = require('../controllers/auth.controller');
+const { register, login, validateMyToken, getUsers, getUserByName, updateProfilePicture, updateProfileBackgroundPicture, updateProfileBiography, updateInfo } = require('../controllers/auth.controller');
 const { validateToken } = require('../middleware/validateJwt');
 const router = Router();
 
@@ -33,9 +33,7 @@ router.get('/renew-token', validateToken , validateMyToken)
 
 router.get('/', getUsers);
 
-router.put('/image/profile', validateToken, updateProfilePicture);
-router.put('/image/background', validateToken, updateProfileBackgroundPicture);
-router.put('/image/biography', validateToken, updateProfileBiography);
+router.put('/image/profile', validateToken, updateInfo);
 
 router.get('/:username', getUserByName);
 
