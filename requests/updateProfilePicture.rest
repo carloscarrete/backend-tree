@@ -1,4 +1,4 @@
-PUT http://localhost/api/v1/auth/carloskrt
+PUT http://localhost:5000/api/v1/auth/carloskrt
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcmxvc2tydCIsInVpZCI6IjYzNDEwYjNiODVkOTNkMmQyMzk2MGNiYSIsImlhdCI6MTY2NTI5NzMwNiwiZXhwIjoxNjY3ODg5MzA2fQ.h5MAFWSZQotTBg9FKFCNJgzg1e7ao2-9Oqke5CO9BRo
 

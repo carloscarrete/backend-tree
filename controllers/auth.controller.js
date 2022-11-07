@@ -5,7 +5,7 @@ const { generateToken } = require('../utils/generateToken');
 const register = async (req, res) => {
 
     const profilePicture = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
-    const profileBackgroundPicture = 'https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105_960_720.png';
+    const profileBackgroundPicture = 'https://w.wallhaven.cc/full/ox/wallhaven-oxzyv5.jpg';
     const biography = '';
 
     const { username, password, confirmPassword, email } = req.body;
@@ -25,6 +25,7 @@ const register = async (req, res) => {
             profileBackgroundPicture,
             profilePicture,
             username,
+            createdAt: Date.now(),
         });
 
         user.save();

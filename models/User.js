@@ -28,6 +28,9 @@ const User = new Schema({
         type: String,
         maxLength: 255,
     },
+    createdAt: {
+        type: Date,
+    },
     networks:[
         {type: Schema.Types.ObjectId,
         ref: 'SocialNetwork'
