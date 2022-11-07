@@ -31,6 +31,7 @@ const deleteSocialNetwork = async (req, res) => {
         await SocialNetwork.findByIdAndDelete(socialNetworkId);
         res.status(200).json({
             message: 'Red social eliminada correctamente',
+            ok: true
         })
     } catch (error) {
         console.log(error.message);
