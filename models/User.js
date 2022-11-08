@@ -31,6 +31,10 @@ const User = new Schema({
     createdAt: {
         type: Date,
     },
+    verified: {
+        required: true,
+        type: Boolean,
+    },
     networks:[
         {type: Schema.Types.ObjectId,
         ref: 'SocialNetwork'

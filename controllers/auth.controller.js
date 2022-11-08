@@ -26,6 +26,7 @@ const register = async (req, res) => {
             profilePicture,
             username,
             createdAt: Date.now(),
+            verified: false,
         });
 
         user.save();
@@ -100,7 +101,8 @@ const getUserByName = async (req, res) => {
         networks: user.networks,
         profilePicture: user.profilePicture,
         profileBackgroundPicture: user.profileBackgroundPicture,
-        biography: user.biography
+        biography: user.biography,
+        verified: user.verified
     })
 }
 

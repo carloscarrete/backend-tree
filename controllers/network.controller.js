@@ -54,6 +54,7 @@ const createSocialNetwork = async (req, res) => {
         user.networks = user.networks.concat(savedSocialNetwork._id);
         await user.save();
         return res.status(200).json({
+            _id: socialNetwork._id,
             message: 'Red social agreada correctamente',
             name, 
             url,
@@ -61,6 +62,10 @@ const createSocialNetwork = async (req, res) => {
         });
     } catch (error) {
         console.log(error.message);
+        res.status(404).json({
+            ok: false,
+            message: error.message
+        })
     } 
 }
 
