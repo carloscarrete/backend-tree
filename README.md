@@ -59,7 +59,7 @@ El backend de **Social Treek** es una API RESTful desarrollada con **Node.js**, 
 
 1.  Clona el repositorio:
     
-	    git clone https://github.com/carloscarrete/jvx-v2.git
+	    git clone https://github.com/carloscarrete/backend-tree.git
     
 2.  Navega al directorio del proyecto:
 
