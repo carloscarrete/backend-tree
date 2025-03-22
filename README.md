@@ -63,7 +63,7 @@ El backend de **Social Treek** es una API RESTful desarrollada con **Node.js**, 
     
 2.  Navega al directorio del proyecto:
 
-	    cd carloscarrete-backend-tree
+	    cd backend-tree
     
 3.  Instala las dependencias:
 
